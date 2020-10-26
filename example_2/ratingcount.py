@@ -7,8 +7,10 @@ class MRHotelRaitingCount(MRJob):
          UContinent, ReviewMonth, ReviewDay) = line.split("\t")
         x = rating
         x = float(x)
-        g = sum(HName) / sum(x)
-        result = [HName, g]
+        g = sum(HName) 
+        h = sum(x)
+        r = g/h
+        result = [HName, r]
         yield result
 
  
