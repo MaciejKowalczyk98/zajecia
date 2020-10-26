@@ -5,8 +5,8 @@ class MRHotelRaitingCount(MRJob):
     def mapper(self, _, line):
         (HName, HStar, HRooms, UCountry, NrReviews, rating, StayPeriod, TType, Pool, Gym, TCourt, Spa, Casino, Internet,
          UContinent, ReviewMonth, ReviewDay) = line.split("\t")
-        g = rating
-        g = float(x)
+        x = rating
+        x = float(x)
         result = [HName, g]
         yield result
 
