@@ -15,7 +15,11 @@ class MRHotelRaitingCount(MRJob):
         
         wynik = [rating, 1]
         yield wynik
-
+    
+    def reducer(self, key, value):
+        result = [key, sum(value)]  
+        wynik = [key, sum(value)]
+        yield result + wynik
 
 
 if __name__ == '__main__':
