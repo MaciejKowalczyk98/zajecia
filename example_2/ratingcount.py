@@ -9,7 +9,7 @@ class MRHotelRaitingCount(MRJob):
         yield result
 
     def reducer(self, key, value):
-        result = (key, (len)value)  
+        result = (key, len(value))  
         yield result 
 
 
