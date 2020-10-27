@@ -4,10 +4,11 @@ import csv
 
 class MRHotelRaitingCount(MRJob):
     def mapper(self, _, line):
-        (a, s, d, f)  = line.split(",")
         cos = csv.reader(line)
         next(cos)
-        result = [cos, 1]
+        (a, s, d, f)  = line.split(",")
+        
+        result = [s, 1]
         
         
 
