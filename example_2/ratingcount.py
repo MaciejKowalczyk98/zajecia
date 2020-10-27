@@ -12,8 +12,7 @@ class MRHotelRaitingCount(MRJob):
         wynik = [HName, 1]
         yield wynik    
        
-        result = [HName, x]
-        yield result/wynik
+
  
         
     def reducer(self, key, value):
