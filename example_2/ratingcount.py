@@ -14,7 +14,8 @@ class MRHotelRaitingCount(MRJob):
    
         
     def reducer(self, key, value):
-        result = [key, sum(value)/len(value)]
+        k = [float(i) for i in value]
+        result = [key, sum(k)/len(k)]
         yield result
 
 if __name__ == '__main__':
