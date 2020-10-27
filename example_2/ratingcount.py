@@ -14,7 +14,7 @@ class MRHotelRaitingCount(MRJob):
        
         wynikk = [HName, 1]
         
-        resuly = [wynik/wynikk]
+        result = [wynik, wynikk]
         yield result    
         
         
