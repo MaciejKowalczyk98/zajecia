@@ -2,19 +2,6 @@ from mrjob.job import MRJob
 
 
 class MRHotelRaitingCount(MRJob):
-    def mapperr(self, _, line):
-        (HName, HStar, HRooms, UCountry, NrReviews, rating, StayPeriod, TType, Pool, Gym, TCourt, Spa, Casino, Internet,
-         UContinent, ReviewMonth, ReviewDay) = line.split("\t")
-       
-        
-       
-        result = [rating, 1]
-        yield result
- 
-        
-    def reducerr(self, key, value):
-        result = [key, sum(value)]
-        yield result
 
     def mapper(self, _, line):
         (HName, HStar, HRooms, UCountry, NrReviews, rating, StayPeriod, TType, Pool, Gym, TCourt, Spa, Casino, Internet,
@@ -22,6 +9,8 @@ class MRHotelRaitingCount(MRJob):
         x = rating
         x = float(x)
         
+        wynik = [rating, 1]
+        yield wynik    
        
         result = [HName, x]
         yield result
@@ -30,7 +19,8 @@ class MRHotelRaitingCount(MRJob):
     def reducer(self, key, value):
         result = [key, sum(value)]
         yield result
-        
+        wynik = [key, sum(value)]
+        yield wynik
     
 
 
