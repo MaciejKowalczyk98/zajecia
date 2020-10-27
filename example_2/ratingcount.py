@@ -9,8 +9,8 @@ class MRHotelRaitingCount(MRJob):
         x = rating
         x = float(x)
         
-        wynik = [HName, x] // suma ocen poszczególnych hoteli    
-        result = [HName, 1] // ilość poszczególnych hoteli 
+        wynik = [HName, x]    #suma ocen poszczególnych hoteli    
+        result = [HName, 1]   #ilość poszczególnych hoteli 
         
         yield wynik
         yield result           
