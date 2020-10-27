@@ -3,7 +3,7 @@ from mrjob.job import MRJob
 
 class MRHotelRaitingCount(MRJob):
     def mapper(self, _, line):
-        (x, z, y, k) = line.split(",")
+        (x, z, y, k) = line.split(",")[1:]
 
         result = [k, 1]
 
