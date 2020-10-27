@@ -9,12 +9,12 @@ class MRHotelRaitingCount(MRJob):
         x = rating
         x = float(x)
         
-        result = [HName, x]
+        wynik = [HName, x]
         
        
         result = [HName, 1]
         
-        
+        yield wynik
         yield result    
         
         
