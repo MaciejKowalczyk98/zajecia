@@ -11,6 +11,9 @@ class MRHotelRaitingCount(MRJob):
         
         result = [HName, 1]
         yield result    
+        
+        result = [HName, x]
+        yield result
        
 
  
