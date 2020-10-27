@@ -5,7 +5,7 @@ class MRHotelRaitingCount(MRJob):
     def mapper(self, _, line):
         (movield, title, genres, x) = line.split(",")
 
-        result = [title]
+        result = [title, 1]
 
         yield result
 
