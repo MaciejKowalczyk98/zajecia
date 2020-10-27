@@ -1,4 +1,5 @@
 from mrjob.job import MRJob
+import csv
 
 
 class MRHotelRaitingCount(MRJob):
