@@ -9,10 +9,9 @@ class MRHotelRaitingCount(MRJob):
         x = rating
         x = float(x)
         
-        wynik = [HName, x]     
+  
         result = [HName, 1]   
         
-        yield wynik
         yield result  
         
      def reducer(self, key, value):
