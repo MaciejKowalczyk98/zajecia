@@ -13,7 +13,7 @@ class MRHotelRaitingCount(MRJob):
         yield result
     def Average(k):
         return reduce(lambda a, b: a + b, k) / len(k)
-    k = x
+    k = rating
     average = Average(k)
         
         
