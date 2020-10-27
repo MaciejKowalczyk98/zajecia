@@ -12,7 +12,10 @@ class MRHotelRaitingCount(MRJob):
         result = [HName, x]
         yield result
     def Average(k):
-        average = Average(k)
+        return reduce(lambda a, b: a + b, k) / len(k)
+    k = x
+    average = Average(k)
+        
         
     def reducer(self, key, value):
         result = [key, sum(value)]
