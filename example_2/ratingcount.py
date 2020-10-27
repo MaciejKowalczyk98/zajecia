@@ -7,13 +7,12 @@ class MRHotelRaitingCount(MRJob):
          UContinent, ReviewMonth, ReviewDay) = line.split("\t")
         x = rating
         x = float(x)
-        g = sum(rating)
        
         result = [HName, x]
         yield result
         
     def reducer(self, key, value):
-        result = [key, value]
+        result = [key, sum(value)]
         yield result
 
  
