@@ -10,7 +10,7 @@ class MRHotelRaitingCount(MRJob):
     df3 = a.merge(b, on=["movieId"], how='outer')
     df3.to_csv("final.csv", index=False)
     def mapper(self, _, line):
-        (a, ty, d, us, mo, rating, tim) = line.split("\t")
+        (a, ty, d, us, mo, rating, tim) = line.split(",")
 
         x = rating
         x = float(x)
