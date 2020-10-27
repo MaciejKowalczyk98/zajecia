@@ -9,7 +9,6 @@ class MRHotelRaitingCount(MRJob):
         next(csv_reader)
         result = [s, 1]
         
-        file = open('sample.csv')
         
 
 
