@@ -11,7 +11,7 @@ class MRHotelRaitingCount(MRJob):
         else:
             splits = line.split(',')
             idKey = 0
-        yield splits[idKey],splits
+        yield splits[idKey], splits
 
     def reducer(self, movieID, value):
         a = []
