@@ -21,8 +21,8 @@ class MRHotelRaitingCount(MRJob):
         if len(a) == 1:
             yield movieID, 'No Rating'
         else:
-            el = None
-            to = None
+            el = 0
+            to = 0
             total = 0
             elements = 0
             try:
