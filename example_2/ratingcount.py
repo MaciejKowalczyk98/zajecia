@@ -28,6 +28,7 @@ class MRHotelRaitingCount(MRJob):
             else:
                 title = ''.join(a[-1][1:-1])
             for x in a[:-1]:
+                x = float(x)
                 total += float(x[2])
                 elements += 1
 
