@@ -21,6 +21,8 @@ class MRHotelRaitingCount(MRJob):
         if len(a) == 1:
             yield movieID, 'No Rating'
         else:
+            el = None
+            to = None
             total = 0
             elements = 0
             try:
@@ -33,11 +35,6 @@ class MRHotelRaitingCount(MRJob):
             else:
                 title = ''.join(a[-1][1:-1])
             for x in a[:-1]:
-                try:
-                    to=[float(x) for x in total]
-                    el=[float(x) for x in elements]
-                except: 
-                    pass
                 to += float(x[2])
                 el += 1
 
