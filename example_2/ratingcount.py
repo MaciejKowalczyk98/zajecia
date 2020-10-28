@@ -28,11 +28,11 @@ class MRHotelRaitingCount(MRJob):
             else:
                 title = ''.join(a[-1][1:-1])
             for x in a[:-1]:
-                k = [float(i) for i in x]
-                total += float(k[2])
+                total += float(x[2])
                 elements += 1
 
             yield movieID, {"title": title, "rating": total / elements}
 
 if __name__ == '__main__':
     MRHotelRaitingCount.run()
+
