@@ -17,25 +17,26 @@ class MRHotelRaitingCount(MRJob):
         a = []
         for x in value:
             a.append(x)
-        try:
-            k=[float(x) for x in value]
-        except: 
-            pass
 
         if len(a) == 1:
             yield movieID, 'No Rating'
         else:
             total = 0
             elements = 0
+            try:
+                to=[float(x) for x in total]
+                el=[float(x) for x in elements]
+            except: 
+                pass
             if len(a[-1]) == 3:
                 title = a[-1][1]
             else:
                 title = ''.join(a[-1][1:-1])
             for x in a[:-1]:
-                total += float(x[2])
-                elements += 1
+                to += float(x[2])
+                el += 1
 
-            yield movieID, {"title": title, "rating": total / elements}
+            yield movieID, {"title": title, "rating": to / el}
 
 if __name__ == '__main__':
     MRHotelRaitingCount.run()
