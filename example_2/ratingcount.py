@@ -17,6 +17,10 @@ class MRHotelRaitingCount(MRJob):
         a = []
         for x in value:
             a.append(x)
+        try:
+            k=[float(x) for x in value]
+        except: 
+            pass
 
         if len(a) == 1:
             yield movieID, 'No Rating'
