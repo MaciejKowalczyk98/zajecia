@@ -1,42 +1,42 @@
 from mrjob.job import MRJob
 import os
- 
- 
-class MRHotelRaitingCount(MRJob):
+
+class film(MRJob):
     def mapper(self, key, line):
-        splits = []
-        idKey = 0
+        podz = []
+        numK = 0
         if "ratings" in os.environ['map_input_file']:
-            splits = line.split(',')
-            idKey = 1
+            podz = line.split(',')
+            numK = 1
+
         else:
-            splits = line.split(',')
-            idKey = 0
-        yield splits[idKey], splits
- 
-    def reducer(self, movieID, value):
-        a = []
+            podz = line.split(',')
+            numK = 0
+
+        yield podz[numK], podz
+
+    def reducer(self, film, value):
+        wynik = []
         for x in value:
-            a.append(x)
- 
-        if len(a) == 1:
-            yield movieID, 'No Rating'
+            wynik.append(x)
+
+        if len(wynik) == 1:
+            yield film, 'No Rating'
+
         else:
             try:
-                to = [float(x[2]) for x in a[:-1]]
- 
-                if len(a[-1]) == 3:
-                    title = a[-1][1]
+                to = [float(x[2]) for x in wynik[:-1]]
+
+                if len(wynik[-1]) == 3:
+                    title = wynik[-1][1]
+
                 else:
-                    title = ''.join(a[-1][1:-1])
- 
+                    title = ''.join(wynik[-1][1:-1])
                 el = len(to)
                 to = sum(to)
- 
-                yield movieID, {"title": title, "rating": to / el}
+                yield film, {"title": title, "rating": to / el}
+
             except:
                 pass
- 
- 
-if __name__ == '__main__':
-    MRHotelRaitingCount.run()
+
+if __name__ == '__main__':film.run()
