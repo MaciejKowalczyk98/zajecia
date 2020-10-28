@@ -42,7 +42,7 @@ class MRHotelRaitingCount(MRJob):
                     pass
                 
 
-            yield movieID, {"title": title, "rating": to / el}
+            yield movieID, {"title": title, "rating": total / elements}
 
 if __name__ == '__main__':
     MRHotelRaitingCount.run()
