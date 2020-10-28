@@ -36,12 +36,11 @@ class MRHotelRaitingCount(MRJob):
                 title = ''.join(a[-1][1:-1])
             for x in a[:-1]:
                 try:
-                    to=[float(x) for x in total]
-                    el=[float(x) for x in elements]
+                    to += float(x[2])
+                    el += 1
                 except: 
                     pass
-                to += float(x[2])
-                el += 1
+                
 
             yield movieID, {"title": title, "rating": to / el}
 
