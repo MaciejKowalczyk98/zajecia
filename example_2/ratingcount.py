@@ -1,6 +1,7 @@
 from mrjob.job import MRJob
 import os
-
+ 
+ 
 class MRHotelRaitingCount(MRJob):
     def mapper(self, key, line):
         splits = []
@@ -12,38 +13,30 @@ class MRHotelRaitingCount(MRJob):
             splits = line.split(',')
             idKey = 0
         yield splits[idKey], splits
-
+ 
     def reducer(self, movieID, value):
         a = []
         for x in value:
             a.append(x)
-
+ 
         if len(a) == 1:
             yield movieID, 'No Rating'
         else:
-            el = 0
-            to = 0
-            total = 0
-            elements = 0
             try:
-                to=[float(x) for x in total]
-                el=[float(x) for x in elements]
-            except: 
+                to = [float(x[2]) for x in a[:-1]]
+ 
+                if len(a[-1]) == 3:
+                    title = a[-1][1]
+                else:
+                    title = ''.join(a[-1][1:-1])
+ 
+                el = len(to)
+                to = sum(to)
+ 
+                yield movieID, {"title": title, "rating": to / el}
+            except:
                 pass
-            if len(a[-1]) == 3:
-                title = a[-1][1]
-            else:
-                title = ''.join(a[-1][1:-1])
-            for x in a[:-1]:
-                try:
-                    to += float(x[2])
-                    el += 1
-                except: 
-                    pass
-                
-
-            yield movieID, {"title": title, "rating": to / el}
-
+ 
+ 
 if __name__ == '__main__':
     MRHotelRaitingCount.run()
-
